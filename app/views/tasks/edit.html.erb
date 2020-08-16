@@ -1,0 +1,20 @@
+<h3>Create a task (simple form)</h3>
+
+<%= simple_form_for(@task) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :details %>
+  <% unless f.object.new_record? %>
+    <%= f.check_box :completed %>
+  <% end %>
+  <%= f.button :submit, class: "btn-primary" %>
+<% end %>
+
+<br>
+
+<h3>Create a task (form_for)</h3>
+
+<%= render 'form', task: @task %>
+
+<%= link_to tasks_path do %>
+  <i class="fa fa-history"></i> Back to list
+<% end %>

@@ -1,0 +1,34 @@
+<h1>Task</h1>
+
+<p>
+  <%= @task.title %> - <%= @task.details %>
+  <%= check_box("task", @task.id, {checked: @task.completed}) %>
+</p>
+
+
+<%= link_to "Back to list", tasks_path %>
+
+<hr>
+
+<h3>Solution Way:</h3>
+
+<%= link_to edit_task_path(@task.id), class: 'pull-right btn btn-default' do %>
+  <i class="fa fa-pencil" aria-hidden="true"></i> Edit this task
+<% end %>
+
+<h1><%= @task.title %></h1>
+
+<p class="well">
+  <%= @task.details %>
+</p>
+
+<% if @task.completed %>
+  <i class="fa fa-check-square"></i> This task is completed
+<% else %>
+  <i class="fa fa-square"></i> This task is not completed yet
+<% end %>
+
+<hr>
+<%= link_to tasks_path do %>
+  <i class="fa fa-history"></i> Back to list
+<% end %>
